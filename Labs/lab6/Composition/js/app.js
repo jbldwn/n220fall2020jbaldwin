@@ -1,7 +1,7 @@
 //creating the object
 let myCircle = {
-    x: 400,
-    y: 300,
+    x: 25,
+    y: 35,
     w: 50,
     h: 50,
     //creating a function within the object about how to behave
@@ -17,7 +17,16 @@ let myCircle = {
         }
         //drawing the ellipse
         fill(206, 121, 107);
-        ellipse(this.x, this.y, this.w, this.h);
+        noStroke();
+
+        for(i=0; i<800; i+=75){
+            for(e=0; e<800; e+=75){
+            ellipse(this.x+i, this.y+e, this.w, this.h)
+            }
+        }
+            
+        
+        
     }
 };
 function setup(){
