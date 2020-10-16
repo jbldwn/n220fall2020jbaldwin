@@ -1,4 +1,4 @@
-let ballVelocity = 1;
+let score = 0
 
 let myPaddle = {
     rectX: 700,
@@ -23,10 +23,40 @@ let myPaddle = {
 
 let ball = {
     color: "#FE5D26",
-    ballVelocity: 1,
+    ballVelocityX: 2,
+    ballVelocityY: 2,
     x: 350,
     y: 300,
     ballMovement: function(){
+        fill(this.color);
+        this.x -=this.ballVelocityX
+        this.y -=this.ballVelocityY
+
+        //setting boundries
+        if(this.y <0){
+            this.ballVelocityY*=-1;
+        }if(this.y > 600){
+            this.ballVelocityY*=-1;
+        }if(this.x <0){
+            this.ballVelocityX*=-1;
+        }if (collideRect(this.x, this.y, myPaddle.rectX, myPaddle.rectY, myPaddle.rectW, myPaddle.rectH)){
+            this.ballVelocityX*=-1;
+
+        //resets if ball goes off screen
+        }if(this.x > 800){
+            this.ballVelocityX= 2;
+            this.ballVelocityY= 2;
+            this.x= 350;
+            this.y= 300;
+            myPaddle.rectX= 700;
+            myPaddle.rectY= 50;
+            myPaddle.rectW= 50;
+            myPaddle.rectH= 500;
+            score=0;
+        }
+        circle(this.x, this.y, 30);
+        
+        
         
     }
 }
@@ -36,46 +66,30 @@ function setup(){
     background(193, 219, 179);
 }
 
+//score diplay
+function displayScore(){
+    fill("#FE5D26");
+    textSize(20)
+    text("Score:x " + score, 10, 20);
+}
+
 //hitbox
 function collideRect(circleX, circleY, rectX, rectY, rectW, rectH){
     if(circleX > rectX && circleX < rectX + rectW) {
         if(circleY > rectY && circleY < rectY + rectH) {
-            ball.ballVelocity *= 1.25
-            myPaddle.rectH *= .25
+            ball.ballVelocityY *= -1.75;
+            myPaddle.rectH *= .75;
+            score+= 1;
             return true;
         }
    }
    return false;
 }
 function draw(){
-    
+    fill(44, 54, 63); 
     background(193, 219, 179);
     strokeWeight(0);
-    fill(44, 54, 63);
+    displayScore();
     myPaddle.directionalOperator();
-
-    // for(i=0; i < circlesY.length; i++){
-    //     //check hitbox
-    //      if (collideRect(circlesX[i], circlesY[i], 50, 450, 700, 100)){
-    //          circleVelocity[i] *= -1;
-    //      }
-        
-    //     //draws balls falling
-    //     circlesY[i] += circleVelocity[i];
-    //     // circlesX[i] += xVelocity;
-
-    //     //draws balls
-    //     circle(circlesX[i], circlesY[i] -circleVelocity[i], 30);
-        
-    //     //removes values too large from array
-    //     if(circlesX[i]>820){
-    //         circlesY.shift();
-    //         circlesX.shift();
-    //         circleVelocity.shift();
-    //     }if(circlesX[i]<-820){
-    //         circlesY.shift();
-    //         circlesX.shift();
-    //         circleVelocity.shift();
-    //     }
-    // }
+    ball.ballMovement();
 }
