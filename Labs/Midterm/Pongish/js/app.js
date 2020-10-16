@@ -79,7 +79,7 @@ function collideRect(circleX, circleY, rectX, rectY, rectW, rectH){
         if(circleY > rectY && circleY < rectY + rectH) {
             ball.ballVelocityY *= -1.75;
             myPaddle.rectH *= .75;
-            score+= 1;
+            score+= 10;
             return true;
         }
    }
