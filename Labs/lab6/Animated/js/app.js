@@ -17,6 +17,7 @@ function setup(){
     createCanvas(800, 600);
 }
 function draw(){
+    noStroke();
     background(73, 88, 103);
     //summoning function to draw object
     myCircle.moving();

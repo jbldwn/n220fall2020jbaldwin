@@ -88,7 +88,7 @@ function collideRect(circleX, circleY, rectX, rectY, rectW, rectH){
 function draw(){
     fill(44, 54, 63); 
     background(193, 219, 179);
-    strokeWeight(0);
+    noStroke();
     displayScore();
     myPaddle.directionalOperator();
     ball.ballMovement();
