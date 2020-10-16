@@ -12,6 +12,7 @@ let myCircle = {
         this.r += 1;
     }
 };
+//testing
 function setup(){
     createCanvas(800, 600);
 }
