@@ -70,7 +70,7 @@ function setup(){
 function displayScore(){
     fill("#FE5D26");
     textSize(20)
-    text("Score: " + score, 10, 20);
+    text("Score: " + score, 10, 25);
 }
 
 //hitbox
