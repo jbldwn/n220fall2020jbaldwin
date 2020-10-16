@@ -1,6 +1,5 @@
 let circlesX = [];
 let circlesY = [];
-// let circleVelocity = 5;
 let rectX = 50;
     let rectY = 450;
     let rectW = 450;
@@ -46,39 +45,16 @@ function draw(){
 
         //draws balls
         circle(circlesX[i], circlesY[i] -circleVelocity[i], 30);
-
         
-        // fill("#008148");
-        // let xVelocity = 0;
-        // //calculating xVelocity
-        // if(circlesX[i+1]-circlesX[i] >= 0){
-        //     xVelocity = circlesX[i+1]-circlesX[i];
-        // }if(circlesX[i+1]-circlesX[i] < 0){
-        //     xVelocity = circlesX[i+1]-circlesX[i];
-        // }else{
-        //     xVelocity = 1
-        // }
-        // //draws balls falling
-        // circlesY[i] += circleVelocity;
-        // circlesX[i] += xVelocity;
-
-        
-        // //check hitbox
-        // collideRect(circlesX[i], circlesY[i], 50, 450, 700, 100);
-
-        // //draws balls
-        // circle(circlesX[i], circlesY[i] -circleVelocity, 30);
-
-        // //removes values too large from array
-        // if(circlesX[i]>820){
-        //     circlesY.shift();
-        //     circlesX.shift();
-        // }if(circlesX[i]<-820){
-        //     circlesY.shift();
-        //     circlesX.shift();
-        // }
-        
+        //removes values too large from array
+        if(circlesX[i]>820){
+            circlesY.shift();
+            circlesX.shift();
+            circleVelocity.shift();
+        }if(circlesX[i]<-820){
+            circlesY.shift();
+            circlesX.shift();
+            circleVelocity.shift();
+        }
     }
-    //reset velocity
-        // circleVelocity = 5
 }
