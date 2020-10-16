@@ -6,13 +6,13 @@ let myCircle = {
     h: 50,
     //creating a function within the object about how to behave
     directionalOperator: function(){
-        if (keyCode === UP_ARROW) {
+        if (keyIsDown(UP_ARROW)) {
             this.h -= 2;
-        } else if (keyCode === DOWN_ARROW) {
+        } else if (keyIsDown(DOWN_ARROW)) {
             this.h += 2;
-        }if (keyCode === LEFT_ARROW) {
+        }if (keyIsDown(LEFT_ARROW)) {
             this.w -= 2;
-        } else if (keyCode === RIGHT_ARROW) {
+        } else if (keyIsDown(RIGHT_ARROW)) {
             this.w += 2;
         }
         //drawing the ellipse
