@@ -32,6 +32,6 @@ for(var i= 0; i < 3; i++) {
 }
 
 //when clicked, change color
-function changeColor(event){
-    event.target.style.backgroundColor = event.target.getAttibute("div-color");
+function changeColor(event) {
+    event.target.style.backgroundColor = event.target.getAttribute("div-color");
 }
