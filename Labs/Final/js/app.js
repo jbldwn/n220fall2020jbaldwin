@@ -83,7 +83,7 @@ for(i=0; i<friendsArray.length; i++){
     faceCard.style.float = "left";
     faceCard.style.backgroundPosition= "center";
     faceCard.style.backgroundSize= "cover";
-    faceCard.style.backgroundImage = "url(./assets/door.jpg)";
+    faceCard.style.backgroundImage = "url(../assets/door.jpg)";
 
     //instructions
     statusDiv.innerHTML = "Pick 2 cards.";
@@ -102,7 +102,7 @@ function flipCard(event){
     let character = event.target.getAttribute("data-name");
 
     //change background
-    event.target.style.backgroundImage = "url(./assets/"+character+".jpg)";
+    event.target.style.backgroundImage = "url(../assets/"+character+".jpg)";
 
     //add tag to alert flipped
     event.target.className += "flipped";
@@ -160,8 +160,8 @@ function markMatch(){
 function cardReset(){
     flippedCards = document.getElementsByClassName("flipped");
 
-    flippedCards[1].style.backgroundImage = "url(./assets/door.jpg)";
-    flippedCards[0].style.backgroundImage = "url(./assets/door.jpg)";
+    flippedCards[1].style.backgroundImage = "url(../assets/door.jpg)";
+    flippedCards[0].style.backgroundImage = "url(../assets/door.jpg)";
 
     choiceOne = "Choose a card.";
     choiceTwo = "Choose a card.";
