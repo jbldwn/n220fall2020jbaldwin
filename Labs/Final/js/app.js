@@ -83,7 +83,7 @@ for(i=0; i<friendsArray.length; i++){
     faceCard.style.float = "left";
     faceCard.style.backgroundPosition= "center";
     faceCard.style.backgroundSize= "cover";
-    faceCard.style.backgroundImage = "url(./assets/Door.jpg)";
+    faceCard.style.backgroundImage = "url(./assets/dope.jpg)";
 
     //instructions
     statusDiv.innerHTML = "Pick 2 cards.";
@@ -160,8 +160,8 @@ function markMatch(){
 function cardReset(){
     flippedCards = document.getElementsByClassName("flipped");
 
-    flippedCards[1].style.backgroundImage = "url(./assets/Door.jpg)";
-    flippedCards[0].style.backgroundImage = "url(./assets/Door.jpg)";
+    flippedCards[1].style.backgroundImage = "url(./assets/dope.jpg)";
+    flippedCards[0].style.backgroundImage = "url(./assets/dope.jpg)";
 
     choiceOne = "Choose a card.";
     choiceTwo = "Choose a card.";
