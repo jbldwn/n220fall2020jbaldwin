@@ -131,9 +131,6 @@ function flipCard(event){
         setTimeout(cardReset, 2000)
         enableCard();
 
-        //remove event listener
-        // event.target.removeEventListener("click", flipCard);
-
         //lose life from incorrect guess and update lives
         life -= 1;
         lifeDiv.innerHTML = "Remaining lives: " + life;
@@ -163,15 +160,6 @@ function markMatch(){
     //reset array and class
     openCards.splice(0, openCards.length);
 
-    // //remove event listener from all cards
-    // let deck = document.getElementById("memory").childNodes;
-    // for(i=0; i< deck.length; i++ ){
-    //     removeEvent(deck[i], "click", flipCard)
-    // }
-    // flippedCards[1].removeEventListener("click", flipCard);
-    // flippedCards[0].removeEventListener("click", flipCard);
-
-
     stripFlip();
     disableCard();
 }
@@ -180,9 +168,6 @@ function markMatch(){
 function cardReset(){
     flippedCards = document.getElementsByClassName("flipped");
 
-    // while(flippedCards.length>0){
-    //     flippedCards[].style.backgroundImage = "url(./assets/Door.jpg)";
-    // }
     flippedCards[1].style.backgroundImage = "url(./assets/Door.jpg)";
     flippedCards[0].style.backgroundImage = "url(./assets/Door.jpg)";
 
@@ -195,13 +180,9 @@ function cardReset(){
     openCards.splice(0, openCards.length);
     stripFlip();
 
-    // //remove event listener from all cards
-    // let deck = document.getElementById("memory").childNodes;
-    // for(i=0; i< deck.length; i++ ){
-    //     removeEvent(deck[i], "click", flipCard)
-    // }
     disableCard();
 }
+
 //add event back to all child divs
 function addEvent(element, event_name, func) {
     if (element.addEventListener) {
@@ -210,14 +191,6 @@ function addEvent(element, event_name, func) {
         element.attachEvent("on"+event_name, func);
     }
 }
-// //remove event back to all child divs
-// function removeEvent(element, event_name, func) {
-//     if (element.removeEventListener) {
-//         element.removeEventListener(event_name, func, true);
-//     } else if (element.attachEvent)  {
-//         element.attachEvent("off"+event_name, func);
-//     }
-// }
 
 //matchchecking process
 function matchCheck(){
@@ -342,21 +315,12 @@ function matchCheck(){
         statusDiv.innerHTML = "Not a match.";
         matchpass = "false";
     }
-
 }
-
 //reset flipped status
 function stripFlip(){
     var element = document.getElementsByClassName("flipped");
     element[1].classList.remove("flipped");
     element[0].classList.remove("flipped");
-    // element[1].classList.add("deck");
-    // element[0].classList.add("deck");
-    // for(i=1; i<0; i--){
-    //     element[i].classList.remove("flipped");
-    //     element[i].classList.add("deck");
-    //     console.log(element);
-    // }
 }
 //see if game is over
 function gameComplete(){
@@ -365,6 +329,8 @@ function gameComplete(){
         statusDiv.style.height= 50 + "px";
         statusDiv.style.width= 100 + "px";
         statusDiv.innerHTML = "You win! Replay?";
+        score = score + (life*100);
+        scoreDiv.innerHTML = "Score: " + score;
         statusDiv.addEventListener("click", replay);
         window.open('https://www.youtube.com/watch?v=SCQGnVrTsAM&ab_channel=ArifulHoque.com','_blank');
     }else if(life == 0){
@@ -380,25 +346,9 @@ function replay(){
     window.location.reload();
 }
 function disableCard(){
-    // var childNodes = document.getElementById("memory");
-    // for (var node of childNodes) {
-    //     node.disabled = true;
-    // }
     document.getElementById("memory").disabled = true;
-    console.log("is it disabled? ");
-    // for(i=0; i< cardDisplay.length; i++  ){
-    //     cardDisplay[i].disabled = true;
-    // }
-    
+    console.log("is it disabled? ")
 }
 function enableCard(){
-    // var childNodes = document.getElementById("memory");
-    // for (var node of childNodes) {
-    //     node.disabled = false;
-    // }
     document.getElementById("memory").disabled = false;
-    // // console.log(cardDisplay);
-    // for(i=0; i< cardDisplay.length; i++  ){
-    //     cardDisplay[i].disabled = false;
-    // }
 }
